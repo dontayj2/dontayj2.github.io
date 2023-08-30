@@ -22,6 +22,7 @@ h1 {
     color: rgb(231, 12, 12);
     flex: 1;
     margin: 0;
+    font-family:sans-serif;
 }
 #nav-ul {
     list-style-image: none;
@@ -52,62 +53,39 @@ content{
 }
  /* portfolio styles */
  #interests{
-    border: 4px silver ridge;
+    border: 4px rgb(0, 0, 0) ridge;
     padding: 8px;
  }
  h2,h3, p{
     margin: 0px;
-    color:white;
+    color:rgb(255, 0, 0);
  }
 li{
     color:white;
 }
  /* portfolio styles */
  .content h1 {
-    color: black;
+    color: rgb(242, 26, 26);
 }
 
 #portfolio {
     list-style-type: none;
     padding-left: 0;
+    color:aqua
 }
 
 #portfolio li {
-    background: #fff;
+    background: #000000;
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
 }
 
 #portfolio li:hover {
-    background: #eee;
+    background: #921616;
 }
 
 #portfolio a {
-    text-decoration: none;
-    color: #454545;
-} /* portfolio styles */
-.content h1 {
-    color: black;
-}
-
-#portfolio {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-#portfolio li {
-    background: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-#portfolio li:hover {
-    background: #eee;
-}
-
-#portfolio a {
-    text-decoration: none;
-    color: #454545;
-}
+    text-decoration:none;
+    color: #ec0606;
+} 
