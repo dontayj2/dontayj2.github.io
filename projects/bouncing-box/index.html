@@ -1,91 +1,105 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Bouncing Box</title>
-	<script src="jquery.min.js"></script>
-	<style>
-		.box {
-			width: 70px;
-			height: 70px;
-			background-color: teal;
-			font-size: 300%;
-			text-align: center;
-			user-select: none;
-			display: block;
-			position: absolute;
-			top: 100px;
-			left: 0px;  /* <--- Change me! */
-		}
-		.board{
-			height: 100vh;
-		}
-	</style>
-	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+<meta charset="utf-8">
+<title>Bouncing Box</title>
+<script src="jquery.min.js"></script>
+<style>
+.box {
+width: 70px;
+height: 70px;
+background-image:url( "data:image/jpeg;base64,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");
+background-size: 100%;
+font-size: 300%;
+text-align: center;
+user-select: none;
+display: block;
+position: absolute;
+top: 100px;
+left: 0px; /* <--- Change me! */
+}
+.board{
+height: 100vh;
+background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc8VVOcKu09gbMJ0CUXZvP3xJnhG_AQfQwhg&usqp=CAU");
+background-size: 100%
+}
+</style>
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
 </head>
 <body class="board">
-	<!-- HTML for the box -->
-	<div class="box">?</div>
+<!-- HTML for the box -->
+<div class="box">?</div>
 
-	<script>
-		(function(){
-			'use strict'
-			/* global jQuery */
+<script>
+(function(){
+'use strict'
+/* global jQuery */
 
-			//////////////////////////////////////////////////////////////////
-			/////////////////// SETUP DO NOT DELETE //////////////////////////
-			//////////////////////////////////////////////////////////////////
-			
-			var box = jQuery('.box');	// reference to the HTML .box element
-			var board = jQuery('.board');	// reference to the HTML .board element
-			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
+//////////////////////////////////////////////////////////////////
+/////////////////// SETUP DO NOT DELETE //////////////////////////
+//////////////////////////////////////////////////////////////////
+var box = jQuery('.box'); // reference to the HTML .box element
+var board = jQuery('.board'); // reference to the HTML .board element
+var boardWidth = board.width(); // the maximum X-Coordinate of the screen
 
-			// Every 50 milliseconds, call the update Function (see below)
-			setInterval(update, 50);
-			
-			// Every time the box is clicked, call the handleBoxClick Function (see below)
-			box.on('click', handleBoxClick);
+// Every 50 milliseconds, call the update Function (see below)
+setInterval(update, 50);
+// Every time the box is clicked, call the handleBoxClick Function (see below)
+box.on('click', handleBoxClick);
 
-			// moves the Box to a new position on the screen along the X-Axis
-			function moveBoxTo(newPositionX) {
-				box.css("left", newPositionX);
-			}
+// moves the Box to a new position on the screen along the X-Axis
+function moveBoxTo(newPositionX) {
+box.css("left", newPositionX);
+}
 
-			// changes the text displayed on the Box
-			function changeBoxText(newText) {
-				box.text(newText);
-			}
+// changes the text displayed on the Box
+function changeBoxText(newText) {
+box.text(newText);
+}
 
-			//////////////////////////////////////////////////////////////////
-			/////////////////// YOUR CODE BELOW HERE /////////////////////////
-			//////////////////////////////////////////////////////////////////
-			
-			// TODO 2 - Variable declarations 
-			
+//////////////////////////////////////////////////////////////////
+/////////////////// YOUR CODE BELOW HERE /////////////////////////
+//////////////////////////////////////////////////////////////////
+// TODO 2 - Variable declarations
+var positionX = 0;
+var points = 0;
+var speed = 10;
+/*
+This Function will be called 20 times/second. Each time it is called,
+it should move the Box to a new location. If the box drifts off the screen
+turn it around!
+*/
+function update() {
+/* Your Code to Increase positionX by 10 HERE */
+positionX = positionX + speed;
+moveBoxTo(positionX)
+if (positionX > boardWidth){
+speed=-speed;
+}
+if (positionX < 0){
+speed=-speed
+}
+};
 
-			
-			/* 
-			This Function will be called 20 times/second. Each time it is called,
-			it should move the Box to a new location. If the box drifts off the screen
-			turn it around! 
-			*/
-			function update() {
-				
+/*
+This Function will be called each time the box is clicked. Each time it is called,
+it should increase the points total, increase the speed, and move the box to
+the left side of the screen.
+*/
+function handleBoxClick() {
+positionX=0;
+points= points + 1;
+changeBoxText(points)
+if (speed>0){
+speed += 3
+}
+else if(speed<0 ){
+speed -= 3
+}
 
-			};
-
-			/* 
-			This Function will be called each time the box is clicked. Each time it is called,
-			it should increase the points total, increase the speed, and move the box to
-			the left side of the screen.
-			*/
-			function handleBoxClick() {
-				
-
-
-			};
-		})();
-	</script>
+};
+})();
+</script>
 </body>
 </html>
